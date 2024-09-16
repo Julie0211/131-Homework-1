@@ -15,7 +15,7 @@ int main()
 
 	for (auto it = groceries.rbegin(); it != groceries.rend(); ++it)
 	{
-		std::cout << *it->get() << std::endl;
+		std::cout << *it << std::endl;
 	}
 	
 	return 0;
