@@ -1,3 +1,4 @@
+#include <iostream>
 #include <memory>
 #include <vector>
 
@@ -5,17 +6,17 @@
 
 int main()
 {
-	GroceryItem g;
+	GroceryItem grocery;
 
 	std::vector<std::unique_ptr<GroceryItem>> groceries;
-	while(std::cin >> g)
+	while(std::cin >> grocery)
 	{
-		groceries.push_back(std::make_unique<GroceryItem>(g));
+		groceries.push_back(std::make_unique<GroceryItem>(grocery));
 	}
 
 	for (auto it = groceries.rbegin(); it != groceries.rend(); ++it)
 	{
-		std::cout << *it << std::endl;
+		std::cout << *it << '\n';
 	}
 	
 	return 0;
