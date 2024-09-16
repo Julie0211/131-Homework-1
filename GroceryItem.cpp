@@ -42,10 +42,12 @@ namespace    // unnamed, anonymous namespace
       ///         do this instead:
       ///           return a < b;
 
-      if (constAbs(lhs - rhs) <= EPSILON1)
-          return true;
+      // Inside the function where constAbs is used
+if (std::abs(lhs - rhs) <= EPSILON1)
+    return true;
 
-      return (constAbs(lhs - rhs) <= (std::max(constAbs(lhs), constAbs(rhs)) * EPSILON2));
+return (std::abs(lhs - rhs) <= (std::max(std::abs(lhs), std::abs(rhs)) * EPSILON2));
+
 
     /////////////////////// END-TO-DO (1) ////////////////////////////
   }
@@ -66,8 +68,8 @@ namespace    // unnamed, anonymous namespace
   /// Copying the parameters into the object's attributes (member variables) "works" but is not correct.  Be sure to move the parameters into the object's attributes
 
 GroceryItem::GroceryItem(std::string productName, std::string brandName,
-  std::string upcCode, double price) : _productName{ productName }, _brandName
-  { brandName }, _upcCode { upcCode }, _price { price }
+  std::string upcCode, double price) 
+  : _upcCode{ upcCode }, _brandName{ brandName }, _productName{ productName }, _price{ price }
 
 /////////////////////// END-TO-DO (2) ////////////////////////////
 {}                                                                    // Avoid setting values in constructor's body (when possible)
@@ -77,8 +79,8 @@ GroceryItem::GroceryItem(std::string productName, std::string brandName,
 
 // Copy constructor
 ///////////////////////// TO-DO (3) //////////////////////////////
-GroceryItem::GroceryItem(GroceryItem const& other) :
-    _productName{ other._productName }, _brandName{ other._brandName }, _upcCode{ other._upcCode }, _price{ other._price }
+GroceryItem::GroceryItem(GroceryItem const& other)
+  : _upcCode{ other._upcCode }, _brandName{ other._brandName }, _productName{ other._productName }, _price{ other._price }
 /////////////////////// END-TO-DO (3) ////////////////////////////
 {}                                                                    // Avoid setting values in constructor's body (when possible)
 
