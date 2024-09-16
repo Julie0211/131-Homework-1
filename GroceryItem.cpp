@@ -90,7 +90,7 @@ GroceryItem::GroceryItem(GroceryItem const& other)
 // Move constructor
 ///////////////////////// TO-DO (4) //////////////////////////////
 GroceryItem::GroceryItem(GroceryItem&& other) noexcept :
-    _productName{ other._productName }, _brandName{ other._brandName }, _upcCode{ other._upcCode }, _price{ other._price }
+    _upcCode{ other._upcCode }, _brandName{ other._brandName }, _productName{ other._productName }, _price{ other._price }
 {
    /* other._productName = other._brandName = other._upcCode  = "";
     
@@ -100,7 +100,7 @@ GroceryItem::GroceryItem(GroceryItem&& other) noexcept :
 }
 
 /////////////////////// END-TO-DO (4) ////////////////////////////
-{}
+
 
 
 
@@ -111,9 +111,9 @@ GroceryItem & GroceryItem::operator=( GroceryItem const & rhs ) &
   ///////////////////////// TO-DO (5) //////////////////////////////
     if (this != &rhs)
     {
-        this->_productName = rhs._productName;
-        this->_brandName = rhs._brandName;
         this->_upcCode = rhs._upcCode;
+        this->_brandName = rhs._brandName;
+        this->_productName = rhs._productName;
         this->_price = rhs._price;
     }
 
@@ -130,9 +130,9 @@ GroceryItem& GroceryItem::operator=(GroceryItem&& rhs) & noexcept
 {
     if (this != &rhs)
     {
-        this->_productName = rhs._productName;
-        this->_brandName = rhs._brandName;
         this->_upcCode = rhs._upcCode;
+        this->_brandName = rhs._brandName;
+        this->_productName = rhs._productName;
         this->_price = rhs._price;
 
         rhs.~GroceryItem();
