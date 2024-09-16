@@ -70,9 +70,9 @@ return (std::abs(lhs - rhs) <= (std::max(std::abs(lhs), std::abs(rhs)) * EPSILON
 GroceryItem::GroceryItem(std::string productName, std::string brandName,
   std::string upcCode, double price) 
   : _upcCode{ upcCode }, _brandName{ brandName }, _productName{ productName }, _price{ price }
-{}
+
 /////////////////////// END-TO-DO (2) ////////////////////////////
-                                                                    // Avoid setting values in constructor's body (when possible)
+{}                                                                  // Avoid setting values in constructor's body (when possible)
 
 
 
@@ -81,9 +81,8 @@ GroceryItem::GroceryItem(std::string productName, std::string brandName,
 ///////////////////////// TO-DO (3) //////////////////////////////
 GroceryItem::GroceryItem(GroceryItem const& other)
   : _upcCode{ other._upcCode }, _brandName{ other._brandName }, _productName{ other._productName }, _price{ other._price }
-  {}
-/////////////////////// END-TO-DO (3) ////////////////////////////
-                                                                  // Avoid setting values in constructor's body (when possible)
+  /////////////////////// END-TO-DO (3) ////////////////////////////
+  {}                                                                // Avoid setting values in constructor's body (when possible)
 
 
 
@@ -92,6 +91,7 @@ GroceryItem::GroceryItem(GroceryItem const& other)
 ///////////////////////// TO-DO (4) //////////////////////////////
 GroceryItem::GroceryItem(GroceryItem&& other) noexcept :
     _upcCode{ other._upcCode }, _brandName{ other._brandName }, _productName{ other._productName }, _price{ other._price }
+/////////////////////// END-TO-DO (4) ////////////////////////////
 {
    /* other._productName = other._brandName = other._upcCode  = "";
     
@@ -100,7 +100,7 @@ GroceryItem::GroceryItem(GroceryItem&& other) noexcept :
     other.~GroceryItem();
 }
 
-/////////////////////// END-TO-DO (4) ////////////////////////////
+
 
 
 
